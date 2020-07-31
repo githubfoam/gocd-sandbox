@@ -12,7 +12,7 @@
   roles:
     - common
 
-- name: "Install compliance as code"
+- name: "Deploy gocd"
   gather_facts: true
   hosts: vg-compute-06   
   become: yes
