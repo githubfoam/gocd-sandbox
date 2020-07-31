@@ -18,10 +18,10 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 vagrant box add "bento/centos-8.2" --provider=virtualbox
 vagrant mutate "bento/centos-8.2" libvirt
 
-vagrant up --provider=libvirt "vg-compute-06"
+# vagrant up --provider=libvirt "vg-compute-06"
 
 vagrant init --template Vagrantfile.erb 
-vagrant up --provider=libvirt
+vagrant up --provider=libvirt "vg-compute-06"
 
 # # https://github.com/chef/bento/tree/master/packer_templates/ubuntu
 # vagrant box add "bento/ubuntu-19.10" --provider=virtualbox

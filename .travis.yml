@@ -8,7 +8,7 @@ matrix:
   fast_finish: true
   include:  
 
-    - name: "deploy gocd"
+    - name: "deploy gocd centos 8"
       dist: bionic
       language: python
       python: 3.7
@@ -24,3 +24,24 @@ matrix:
           # - travis_wait 20 waitfortrav.sh
       after_success:
         - deactivate                
+
+    - name: "deploy gocd server and agents"
+      dist: bionic
+      language: python
+      python: 3.7
+      before_install:
+        - pip3 install virtualenv
+        - virtualenv -p $(which python3) ~venvpy3
+        - source ~venvpy3/bin/activate
+        - pip install -r requirements.txt
+      script:
+          - sudo make deploy-libvirt
+          - sudo make deploy-vagrant
+          - sudo vagrant box add "bento/ubuntu-19.10" --provider=virtualbox
+          - sudo vagrant mutate "bento/ubuntu-19.10" libvirt
+          - sudo vagrant init --template Vagrantfile.erb           
+          - sudo vagrant up --provider=libvirt "vg-compute-07"
+          - sudo vagrant up --provider=libvirt "vg-compute-08"
+          # - travis_wait 20 waitfortrav.sh
+      after_success:
+        - deactivate          

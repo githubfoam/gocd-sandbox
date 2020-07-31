@@ -1,6 +1,6 @@
 # gocd-sandbox
 
-  [![Build Status](https://travis-ci.com/githubfoam/gocd-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/gocd-sandbox)  
+  [![Build Status](https://travis-ci.com/githubfoam/gocd-sandbox.svg?branch=dev)](https://travis-ci.com/githubfoam/gocd-sandbox)  
 
 ~~~~
 vagrant up vg-compute-06

@@ -87,7 +87,7 @@
   # ansible_version: "2.9.2"
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-compute-07"
+- vagrant_box_host: "vg-compute-07" #go-servers
   vagrant_box: "bento/ubuntu-19.10"
   vbox_name: "vbox-compute-07"
   vbox_ram: 4096
@@ -101,8 +101,8 @@
   # ansible_version: "2.9.2"
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-compute-08"
-  vagrant_box: "bento/fedora-32"
+- vagrant_box_host: "vg-compute-08" #go-agents
+  vagrant_box: "bento/ubuntu-19.10"
   vbox_name: "vbox-compute-08"
   vbox_ram: 4096
   vbox_cpu: 2
