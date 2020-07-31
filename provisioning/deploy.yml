@@ -19,18 +19,3 @@
   roles:
     - gocd 
 
-- name: "Install gocd servers"
-  gather_facts: true
-  hosts: vg-compute-07   
-  become: yes
-  roles:
-    - gocd # common requirements
-    - gocd-servers
-
-- name: "Install gocd agents"
-  gather_facts: true
-  hosts: vg-compute-08   
-  become: yes
-  roles:
-    - gocd # common requirements
-    - gocd-servers
