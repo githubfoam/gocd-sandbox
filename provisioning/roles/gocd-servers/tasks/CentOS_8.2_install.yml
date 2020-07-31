@@ -34,10 +34,16 @@
     path: "/var/go"
     state: directory
 
-- name: "Install go-server and JDK"
-  yum: 
-    name: ['java-1.8.0-openjdk','go-server']  
-    state: latest
+# - name: "Install go-server and JDK"
+#   yum: 
+#     name: ['java-1.8.0-openjdk','go-server']  
+#     state: latest
+
+- name: "Install gocd_server_packages"
+  package:
+    name: '{{ gocd_server_packages }}'
+    use: '{{ ansible_pkg_mgr }}'
+    state: present
 
 - name: "Ensure that Go-server starts at startup and is started"
   service: 

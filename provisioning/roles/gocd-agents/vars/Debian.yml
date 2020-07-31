@@ -1,3 +1,5 @@
 ---
-system_packages:
- 
+gocd_agent_packages:
+  - go-agent
+  - maven
+  - jq   

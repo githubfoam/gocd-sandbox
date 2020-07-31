@@ -8,18 +8,11 @@
     - default.yml
 
 
-- name: "Install system packages"
+- name: "Install gocd_server_packages"
   package:
-    name: '{{ system_packages }}'
+    name: '{{ gocd_server_packages }}'
     use: '{{ ansible_pkg_mgr }}'
     state: present
-
-- name: "Install packages"
-  package:
-    name: "{{ item }}"
-    state: present
-    with_items:
-    - go-server
 
 - name: "Enable and start go-server"
   service:

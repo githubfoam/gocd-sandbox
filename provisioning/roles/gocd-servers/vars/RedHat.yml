@@ -1,2 +1,4 @@
 ---
-  
+gocd_server_packages:
+- go-server
+- java-1.8.0-openjdk

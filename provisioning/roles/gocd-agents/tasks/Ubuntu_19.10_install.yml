@@ -8,12 +8,6 @@
     - default.yml
 
 
-- name: "Install system packages"
-  package:
-    name: '{{ system_packages }}'
-    use: '{{ ansible_pkg_mgr }}'
-    state: present
-
 - name: "Add Ubuntu lxd repository"
   apt_repository:
     repo: "ppa:ubuntu-lxc/lxd-stable" 
@@ -23,26 +17,32 @@
     name: lxd
     state: latest    
 
-- name: "Install packages"
+# - name: "Install packages"
+#   package:
+#       name: "{{ item }}"
+#       state: present
+#   with_items:
+#     - go-agent
+#     - maven
+#     - jq    
+
+- name: "Install gocd_agent_packages"
   package:
-      name: "{{ item }}"
-      state: present
-  with_items:
-    - go-agent
-    - maven
-    - jq    
+    name: '{{ gocd_agent_packages }}'
+    use: '{{ ansible_pkg_mgr }}'
+    state: present
 
 - name: "Add user to lxd group"
   user: 
-      name: go
-      groups: lxd
-      append: yes
+    name: go
+    groups: lxd
+    append: yes
 
 - name: "Enable and start go-agent"
   service:
-      name: go-agent
-      enabled: yes
-      state: started    
+    name: go-agent
+    enabled: yes
+    state: started    
 
 
 - name: "Generate custom maven settings file" 
