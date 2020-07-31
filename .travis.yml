@@ -37,11 +37,7 @@ matrix:
       script:
           - sudo make deploy-libvirt
           - sudo make deploy-vagrant
-          - sudo vagrant box add "bento/ubuntu-19.10" --provider=virtualbox
-          - sudo vagrant mutate "bento/ubuntu-19.10" libvirt
-          - sudo vagrant init --template Vagrantfile.erb           
-          - sudo vagrant up --provider=libvirt "vg-compute-07"
-          - sudo vagrant up --provider=libvirt "vg-compute-08"
+          - sudo make deploy-topology
           # - travis_wait 20 waitfortrav.sh
       after_success:
         - deactivate          
